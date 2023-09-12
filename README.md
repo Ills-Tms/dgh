@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Randomized Dice</title>
+    <title>Point-based Dice</title>
     <style>
         /* Styles for the dice container */
         .dice-container {
@@ -23,8 +23,7 @@
             padding: 5px;
             border-radius: 10px;
             margin: 10px;
-            font-size: 24px;
-            font-weight: bold;
+            font-size: 36px; /* Increase the font size for dice symbols */
             align-items: center;
             justify-content: center;
         }
@@ -35,17 +34,21 @@
     <button id="addDiceButton">Add Dice</button>
 
     <script>
-        // Function to generate a random number between 1 and 6
-        function getRandomNumber() {
-            return Math.floor(Math.random() * 6) + 1;
+        // Array of Unicode dice symbols
+        const diceSymbols = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
+
+        // Function to generate a random point
+        function getRandomPoint() {
+            const randomIndex = Math.floor(Math.random() * diceSymbols.length);
+            return diceSymbols[randomIndex];
         }
 
-        // Function to create a new die with a random number
+        // Function to create a new die with a random point
         function createDie() {
             const diceContainer = document.getElementById("diceContainer");
             const die = document.createElement("div");
             die.className = "dice";
-            die.textContent = getRandomNumber(); // Set the random number as text
+            die.textContent = getRandomPoint(); // Set a random point as text
 
             diceContainer.appendChild(die);
         }
@@ -61,4 +64,4 @@
     </script>
 </body>
 </html>
- 
+
