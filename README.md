@@ -1,10 +1,9 @@
-# dgh
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dice Roller</title>
+    <title>Randomized Dice</title>
     <style>
         /* Styles for the dice container */
         .dice-container {
@@ -24,15 +23,10 @@
             padding: 5px;
             border-radius: 10px;
             margin: 10px;
-        }
-
-        /* Styles for the dots (pips) on the dice */
-        .dot {
-            width: 30%;
-            height: 30%;
-            background-color: #000;
-            border-radius: 50%;
-            margin: 5%;
+            font-size: 24px;
+            font-weight: bold;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
@@ -41,18 +35,17 @@
     <button id="addDiceButton">Add Dice</button>
 
     <script>
-        // Function to create a new die
+        // Function to generate a random number between 1 and 6
+        function getRandomNumber() {
+            return Math.floor(Math.random() * 6) + 1;
+        }
+
+        // Function to create a new die with a random number
         function createDie() {
             const diceContainer = document.getElementById("diceContainer");
             const die = document.createElement("div");
             die.className = "dice";
-
-            // Create six dots (pips) to represent the die's appearance
-            for (let i = 0; i < 6; i++) {
-                const dot = document.createElement("div");
-                dot.className = "dot";
-                die.appendChild(dot);
-            }
+            die.textContent = getRandomNumber(); // Set the random number as text
 
             diceContainer.appendChild(die);
         }
@@ -68,3 +61,4 @@
     </script>
 </body>
 </html>
+ 
